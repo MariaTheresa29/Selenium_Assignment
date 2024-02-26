@@ -1,0 +1,53 @@
+package selinumtraining1;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class Linkedn_Login {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		System.setProperty("webdriver.chrome.driver", "D:\\Maria_downloads\\selinumtraining\\driver\\chromedriver.exe");
+    	WebDriver driver = new ChromeDriver();					
+        		
+        String baseUrl = "https://www.linkedin.com/uas/login?fromSignIn=true&trk=cold_join_sign_in";					
+
+        driver.get(baseUrl);
+
+        String title = driver.getTitle();
+
+        System.out.println("title is "+title);
+
+        WebElement name = driver.findElement(By.name("session_key"));
+
+        name.sendKeys("mariatheresa3333@gmail.com");
+
+        WebElement password = driver.findElement(By.name("session_password"));
+
+        password.sendKeys("maria@098");
+
+        WebElement btn = driver.findElement(By.xpath("/html/body/div/main/div[2]/div[1]/form/div[3]/button"));
+
+        btn.click();
+        
+        WebElement btn1 = driver.findElement(By.id("ember26"));
+        btn1.click();
+        
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebElement createPostButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@id='navigation-create-post-Create-a-post']")));
+        createPostButton.click();
+           
+        WebElement textEditor = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"ember438\"]/div/div[2]/div[1]/div/div/div/div/div/div/div[1]/p")));
+        textEditor.sendKeys("This is my test post");
+        
+        WebElement btn2 = driver.findElement(By.id("ember463"));
+        btn2.click();
+        
+	}
+}
