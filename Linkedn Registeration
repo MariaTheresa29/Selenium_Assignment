@@ -1,6 +1,7 @@
 package selinumtraining1;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -10,20 +11,20 @@ public class Gettingstarted_chrome {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		System.setProperty("webdriver.chrome.driver", "D:\\Maria_downloads\\selinumtraining\\driver\\chromedriver.exe");
-    	WebDriver driver = new ChromeDriver();					
+			System.setProperty("webdriver.chrome.driver", "D:\\Maria_downloads\\selinumtraining\\driver\\chromedriver.exe");
+			WebDriver driver = new ChromeDriver();					
     		
-        String baseUrl = "https://www.linkedin.com/signup";					
+            String baseUrl = "https://www.linkedin.com/signup";					
             driver.get(baseUrl);
 
             String title = driver.getTitle();
             System.out.println("title is " + title);
 
             WebElement name = driver.findElement(By.name("email-or-phone"));
-            name.sendKeys("22mcaa39@kristujayanti.com");
+            name.sendKeys("mariatheresa3333@gmail.com.com");
 
             WebElement password = driver.findElement(By.id("password"));
-            password.sendKeys("Maria@123");
+            password.sendKeys("Maria@098");
 
             WebElement btn = driver.findElement(By.xpath("//*[@id=\"join-form-submit\"]"));
             btn.click();
@@ -36,6 +37,57 @@ public class Gettingstarted_chrome {
 
             WebElement btn1 = driver.findElement(By.xpath("//*[@id=\"join-form-submit\"]"));
             btn1.click();
+            
+            WebElement btn2 = driver.findElement(By.xpath("//*[@id=\"home_children_button\"]"));
+            btn2.click();
+            
+            Select country = new Select(driver.findElement(By.id("typeahead-input-for-country")));
+            country.selectByVisibleText("India");
 
+            Select city = new Select(driver.findElement(By.id("typeahead-input-for-city-district")));
+            city.selectByVisibleText("Bengaluru");
+            
+            WebElement btn3 = driver.findElement(By.xpath("//*[@id=\"ember16\"]/span"));
+            btn3.click();
+            
+            Select school = new Select(driver.findElement(By.id("typeahead-input-for-school-name")));
+            school.selectByVisibleText("Kristu jayanti college");
+            
+            Select year = new Select(driver.findElement(By.id("onboarding-profile-edu-start-year")));
+            year.selectByVisibleText("2019");
+            
+            Select end_year = new Select(driver.findElement(By.id("onboarding-profile-edu-end-year")));
+            end_year.selectByVisibleText("2024");
+            
+            WebElement btn4 = driver.findElement(By.id("ember21"));
+            btn4.click();
+            
+            WebElement email = driver.findElement(By.id("email-confirmation-input"));
+            email.sendKeys("");
+
+            WebElement btn5 = driver.findElement(By.xpath("/html/body/div[5]/div[3]/div/div[2]/div/div/main/div/section/section/div/fieldset/div[1]/label"));
+            btn5.click();
+            
+            WebElement btn6 = driver.findElement(By.id("ember70"));
+            btn6.click();
+            
+            Select job_title1 = new Select(driver.findElement(By.id("typeahead-input-for-title")));
+            job_title1.selectByVisibleText("");
+            
+            Select job_location = new Select(driver.findElement(By.id("typeahead-input-for-location")));
+            job_location.selectByVisibleText("");
+            
+            WebElement check = driver.findElement(By.id("open-to-remote-checkbox"));
+            check.sendKeys("");
+            
+            WebElement btn7 = driver.findElement(By.id("ember220"));
+            btn7.click();
+            
+            WebElement btn8 = driver.findElement(By.id("ember222"));
+            btn8.click();
+            
+            WebElement btn9 = driver.findElement(By.id("ember224"));
+            btn9.click();                    
             }
 	}
+	
